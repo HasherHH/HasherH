@@ -1,6 +1,6 @@
 public class OOPSBannerApp{
 public static void main(String[] args){
-	String[] banner = {
+	for (String line : new String[] {
         String.join("", "  *** ", "  *** ", " **** ", "  **** "),
         String.join("", " * * ", " * * ", " * * ", " * "),
         String.join("", " * * ", " * * ", " * * ", " * "),
@@ -8,8 +8,7 @@ public static void main(String[] args){
         String.join("", " * * ", " * * ", " * ", "     * "),
         String.join("", " * * ", " * * ", " * ", "     * "),
         String.join("", "  *** ", "  *** ", " * ", " **** ")
-        }
-		for (String line : banner) {
+        }) {
             System.out.println(line);
         }
 }
