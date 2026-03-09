@@ -1,8 +1,27 @@
+import java.util.HashMap;
+import java.util.Map;
+
 public class OOPSBannerApp {
 
-    // O pattern
-    static String[] getOPattern() {
-        return new String[]{
+    // Function to render banner
+    public static void renderBanner(String word, Map<Character, String[]> patternMap) {
+
+        for (int i = 0; i < 7; i++) {
+            StringBuilder line = new StringBuilder();
+
+            for (char c : word.toCharArray()) {
+                line.append(patternMap.get(c)[i]).append(" ");
+            }
+
+            System.out.println(line);
+        }
+    }
+
+    public static void main(String[] args) {
+
+        Map<Character, String[]> patternMap = new HashMap<>();
+
+        patternMap.put('O', new String[]{
                 " *** ",
                 "*   *",
                 "*   *",
@@ -10,12 +29,9 @@ public class OOPSBannerApp {
                 "*   *",
                 "*   *",
                 " *** "
-        };
-    }
+        });
 
-    // P pattern
-    static String[] getPPattern() {
-        return new String[]{
+        patternMap.put('P', new String[]{
                 "**** ",
                 "*   *",
                 "*   *",
@@ -23,12 +39,9 @@ public class OOPSBannerApp {
                 "*    ",
                 "*    ",
                 "*    "
-        };
-    }
+        });
 
-    // S pattern
-    static String[] getSPattern() {
-        return new String[]{
+        patternMap.put('S', new String[]{
                 " ****",
                 "*    ",
                 "*    ",
@@ -36,17 +49,10 @@ public class OOPSBannerApp {
                 "    *",
                 "    *",
                 "**** "
-        };
-    }
+        });
 
-    public static void main(String[] args) {
+        String word = "OOPS";
 
-        String[] O = getOPattern();
-        String[] P = getPPattern();
-        String[] S = getSPattern();
-
-        for (int i = 0; i < 7; i++) {
-            System.out.println(O[i] + " " + O[i] + " " + P[i] + " " + S[i]);
-        }
+        renderBanner(word, patternMap);
     }
 }
